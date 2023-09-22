@@ -14,6 +14,16 @@ void traversal(struct Node* head){
     }
 }
 
+struct Node* insertion_atend(struct Node* head, struct Node* New){
+    struct Node* ptr = head;
+    while (ptr -> next != NULL){
+        ptr = ptr -> next;
+    }
+    ptr -> next = New;
+    New -> next = NULL;
+    return head;
+}
+
 int main(){
     struct Node* head = (struct Node*)malloc(sizeof(struct Node));
     struct Node* first = (struct Node*)malloc(sizeof(struct Node));
@@ -37,5 +47,7 @@ int main(){
 
     struct Node* last = (struct Node*)malloc(sizeof(struct Node));
     last -> data = 100;
-    
+    head = insertion_atend(head, last);
+    printf("\n");
+    traversal(head);
 }
